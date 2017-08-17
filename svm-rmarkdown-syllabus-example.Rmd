@@ -7,16 +7,16 @@ output:
     template: ~/Dropbox/miscelanea/svm-r-markdown-templates/svm-latex-syllabus.tex
 geometry: margin=1in
 
-title: "POSC 0000: A Class with an R Markdown Syllabus"
-author: Steven V. Miller
-date: "Fall 2016"
+title: "PLCP: Introduction to Comparative Political Economy"
+author: Robert Kubinec
+date: "Fall 2018"
 
-email: "svmille@clemson.edu"
-web: "svmiller.com/teaching"
+email: "rmk7xy@virginia.edu"
+web: "www.robertkubinec.com"
 officehours: "W 09:00-11:30 a.m."
-office: "230A Brackett Hall"
-classroom: "*online*"
-classhours: "TR 02:00-03:45 p.m."
+office: "XXXX"
+classroom: "*XXX*"
+classhours: "XXX"
 
 fontfamily: mathpazo
 fontsize: 11pt
@@ -28,7 +28,7 @@ header-includes:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache=FALSE, dev='pdf')
-mon <- as.Date("2016-08-15")
+mon <- as.Date("2018-08-27")
 # fri <- as.Date("2016-01-08")
 
 advdate <- function(obj, adv) {
@@ -44,81 +44,50 @@ advdate <- function(obj, adv) {
 library(RefManageR)
 # library(knitcitations)
 # library(rcrossref)
-bib <- ReadBib("~/Dropbox/master.bib")
+bib <- ReadBib("C:/Users/bobku/Box Sync/TEX/bibtex/bib/misc/BibTexDatabase.bib",
+                check=F)
 myopts <- BibOptions(bib.style = "authoryear", style="latex", first.inits=FALSE, max.names = 20)
 
 ```
 
 # Course Description
 
-You'll learn stuff in this class, I hope. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas scelerisque elit sapien, eu consequat dui blandit in. Vestibulum dignissim feugiat mauris, at pretium turpis blandit nec. Aliquam porta scelerisque tortor, eget imperdiet quam dapibus et. Sed ut sollicitudin orci, id elementum arcu. Sed arcu quam, vestibulum molestie mattis sed, ultricies sed est. Phasellus eu nunc et urna volutpat pharetra. Donec interdum ante vitae odio malesuada blandit. Fusce at condimentum libero, eu elementum arcu. Aenean posuere id lorem in varius. Sed bibendum neque pretium dolor faucibus, in cursus ipsum suscipit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat volutpat. Phasellus mollis egestas risus, non maximus nisl euismod sit amet. Vestibulum laoreet et urna vitae rutrum. Donec quis dui elit.
+Comparative political economy is the study of political institutions that control economic activity and the ramifications that these institutions have on political outcomes, including social movements, elections and legislatures. The discipline has a very rich history, dating as far back as Aristotle, but it received its current form during the 18th and 19th centuries where we will begin our course overview. Lately, research in comparative political economy has explored social and political phenomena not considered to be heavily affected by economic constraints, such as media coverage, sectarianism and the rebel group recruitment. Through this broadening of political economy, the field has become distilled into a set of principles, called rational choice, that can be applied to a wide set of social institutions. In this class, we will explore the traditional study of political-economic outcomes, including the effects of income inequality, trade, corruption and international financial institutions (IFIs), along with a summary of trending research in election fraud, one-party states, and civil wars.
 
 # Course Objectives
 
-1. You'll learn this
+1. Attain mastery of evaluation and critique of a wide range of readings in the discipline of political economy;
 
-2. And also that
+2. Employ the rational-choice approach in theoretical and applied settings through class discussion & writing;
 
-3. Perhaps some of this too.
+3. Engage in the scholarly process of discovery through an independent research project.
 
-# Required Readings
+# Required Texts
+
+The following two books have been purchased and are available at the book store. I have also placed a copy of each on reserve at the library. We will spend a week on each book as intensive deep-dive into the arguments made by these authors and how they use political economy as a methodology for research.
 
 ```{r, echo = FALSE, results="asis"} 
-bib["vasquez2009twp", "wagner2007ws"]
+bib["arriola2015", "tilly1992"]
 ``` 
 
 
-# Course Policy
+# Course Policies
 
-I will detail the policy for this course below. Basically, don't cheat and try to learn stuff. Don't be that guy.
+Please use the information below as a reference for how this class will be conducted. I would ask that you review this information before contacting me with any questions.
 
 ## Grading Policy
 
 - **20%** of your grade will be determined by a midterm during normal class hours.
 
-- **20%** of your grade will be determined by a term paper that documents your appreciation of Foghat's "Slow Ride", the most important song ever written. "Slow Ride" is what Mozart wishes *Don Giovanni* could have been.
+- **40%** of your grade will come from a 15-20 page (graduate: 25-30 page) paper that explores in further detail one of the research areas on the class syllabus. By the midterm students must have three hypotheses related to one of these research areas and a draft of available resources, which will constitute 5% of the 40%. I expect that students will use original data collection, whether quantitative or qualitative, to answer the questions posed.
 
-- **10%** of your grade will be determined by your attendance and participation in class. Generally, ask questions and answer them.
+- **20%** of your grade will be determined by your attendance and participation in class. I expect you to come having read the reading and prepared to pose at least one question or critique of the readings for that week.
 
-- **20%** of your grade will be determined by a 20-page term paper on when exactly "The Love Boat" jumped the proverbial shark. You will address whether this shark-jumping can be attributed to Ted McGinley, the introduction of Jill Whelan as "Vicki", or some other cause.
-
-- **30%** of your grade will be determined by a final exam.
+- **20%** of your grade will come from three 2-page critical summaries of the reading that you must complete on three separate weeks of the class.
 
 ## Attendance Policy
 
-```{r, include=FALSE}
-options(scipen=999)
-Attend <- read.csv("~/Dropbox/teaching/attendance-grades-relationship.csv")
-Attend$rgrade <- round(Attend$grade, 0)
-Attend$perattend <- (Attend$attendance/Attend$max)*100
-Attend <- subset(Attend, !is.na(rgrade))
-Attend$name <- as.numeric(Attend$name)
-Attend$id <- as.numeric(Attend$id)
-Attend$term <- as.numeric(Attend$term)
-Attend$class <- as.numeric(as.factor(Attend$class))
-M1 <- lm(rgrade ~ perattend, Attend)
-M2 <- lm(rgrade ~ perattend, data=subset(Attend, perattend >= 75))
-library(broom)
 
-M1df <- tidy(M1)
-M2df <- tidy(M2)
-library(ggplot2)
-library(kfigr)
-```
-
-> *Showing up is 80 percent of life* -- Woody Allen, [via Marshall Brickman](http://quoteinvestigator.com/2013/06/10/showing-up/#note-6553-1)
-
-Students should be weary of skipping class. I deduct *all* participation points for a class after five unexcused absences and this can have important implications for a student's overall grade in the class. There is already a strong positive correlation between the percentage of classes a student has attended in the course and the student's final grade for the semester (*r* = `r round(cor(Attend$perattend, Attend$rgrade, use="complete.obs"), 3)`) for all `r nrow(Attend)` students I have taught since Fall 2014. 
-
-A simple linear regression of a student's final grade on percentage of classes attended for the semester for all classes I have taught since Fall 2014 suggests an increase of one percent in attendance for the semester leads to an estimated increase of `r round(M1$coefficients[2], 3)` in the student's final grade. Whereas one missed classes constitutes about a five-percent decrease in percentage attendance for the semester, one missed class means an estimated decrease of `r round(M1$coefficients[2], 3)*5` in the overall grade. The effect of attendance on the final grade for the class is precise (*t* = `r round(M1df$statistic[2], 3)`) and the likelihood that there is no actual relationship between attendance and final grade for the semester is almost zero. This simple linear model with just one predictor (attendance) provides a good fit as well (R$^2$ = `r round(summary(M1)$r.squared, 3)`). See `r figr("attendplot", TRUE, type="Figure")` in this document.
-
-```{r attendplot, echo = FALSE, results="asis", cache=FALSE, fig.cap="A Scatterplot of the Relationship between Class Attendance and Final Grade", fig.height=4, fig.pos="H"}
-Graph <- ggplot(Attend, aes(x = perattend, y = rgrade))
-Graph + geom_point() + labs(x="Percent Attendance in Class", y="Final Grade in Class (0-100)") + 
-                              geom_smooth(method=lm)
-```
-
-A student might object that attendance is partly endogenous to a grade since past classes deducted all participation points after five unexcused absences. This is true, but the findings hold even when I subset the data to cases where attendance is greater than 75% (i.e. roughly the threshold below which I deduct all participation points). Students who just meet the threshold for full participation points nevertheless get an estimated decrease of `r round(M2$coefficients[2], 3)*5` in their overall grade for each missed class. This effect is also precise (*t* = `r round(M2df$statistic[2], 3)`). Put another way, we would have observed this effect in my data if there were no *true* effect of attendance on grades about `r round(summary(M2)$coefficients[2,4]*100000)` times in 100,000 "trials" (i.e. *p* = `r round(summary(M2)$coefficients[2,4], 5)`), on average. That probability is effectively zero. *Attend class*.
 
 ## Late Arrival of the Professor Policy
 

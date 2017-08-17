@@ -1,0 +1,321 @@
+---
+output: 
+  pdf_document:
+    keep_tex: true
+    fig_caption: yes
+    latex_engine: pdflatex
+    template: svm-latex-syllabus.tex
+geometry: margin=1in
+
+title: "PLCP: Introduction to Comparative Political Economy"
+author: Robert Kubinec
+date: "Fall 2018"
+
+email: "rmk7xy@virginia.edu"
+web: "www.robertkubinec.com"
+officehours: "W 09:00-11:30 a.m."
+office: "XXXX"
+classroom: "*XXX*"
+classhours: "XXX"
+
+fontfamily: mathpazo
+fontsize: 11pt
+header-includes:
+   - \linespread{1.05}
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache=FALSE, dev='pdf')
+mon <- as.Date("2018-08-27")
+# fri <- as.Date("2016-01-08")
+
+advdate <- function(obj, adv) {
+ tmon <- obj + 7*(adv-1)
+ tfri <- obj + 4 + 7*(adv-1)
+ tmon <- format(tmon, format="%m/%d")
+ tfri <- format(tfri, format="%m/%d")
+ zadv <- sprintf("%02d", adv)
+ tmp <- paste("Week ",zadv,sep='',", ", tmon," - ",tfri)
+ return(tmp)
+}
+
+library(RefManageR)
+# library(knitcitations)
+# library(rcrossref)
+bib <- ReadBib("C:/Users/bobku/Box Sync/TEX/bibtex/bib/misc/BibTexDatabase.bib",
+                check=F)
+myopts <- BibOptions(bib.style = "authoryear", style="latex", first.inits=FALSE, max.names = 20)
+
+```
+
+# Course Description
+
+Comparative political economy is the study of political institutions that control economic activity and the ramifications that these institutions have on political outcomes, including social movements, elections and legislatures. The discipline has a very rich history, dating as far back as Aristotle, but it received its current form during the 18th and 19th centuries where we will begin our course overview. Lately, research in comparative political economy has explored social and political phenomena not considered to be heavily affected by economic constraints, such as media coverage, sectarianism and the rebel group recruitment. Through this broadening of political economy, the field has become distilled into a set of principles, called rational choice, that can be applied to a wide set of social institutions. In this class, we will explore the traditional study of political-economic outcomes, including the effects of income inequality, trade, corruption and international financial institutions (IFIs), along with a summary of trending research in election fraud, one-party states, and civil wars.
+
+# Course Objectives
+
+1. Attain mastery of evaluation and critique of a wide range of readings in the discipline of political economy;
+
+2. Employ the rational-choice approach in theoretical and applied settings through class discussion & writing;
+
+3. Engage in the scholarly process of discovery through an independent research project.
+
+# Required Texts
+
+The following two books have been purchased and are available at the book store. I have also placed a copy of each on reserve at the library. We will spend a week on each book as intensive deep-dive into the arguments made by these authors and how they use political economy as a methodology for research.
+
+```{r, echo = FALSE, results="asis"} 
+bib["arriola2015", "tilly1992"]
+``` 
+
+In addition for graduate students:
+
+```{r, echo = FALSE, results="asis"} 
+bib[c("Bates1981","haber2003","besley2007principled","Acemoglu2006")]
+``` 
+
+# Course Policies
+
+Please use the information below as a reference for how this class will be conducted. I would ask that you review this information before contacting me with any questions.
+
+## Grading Policy
+
+- **20%** of your grade will be determined by a midterm during normal class hours.
+
+- **40%** of your grade will come from a 15-20 page (graduate: 25-30 page) paper that explores in further detail one of the research areas on the class syllabus. By the midterm students must have three hypotheses related to one of these research areas and a draft of available resources, which will constitute 5% of the 40%. I expect that students will use original data collection, whether quantitative or qualitative, to answer the questions posed.
+
+- **20%** of your grade will be determined by your attendance and participation in class. I expect you to come having read the reading and prepared to pose at least one question or critique of the readings for that week.
+
+- **20%** of your grade will come from three 2-page critical summaries of the reading that you must complete on three separate weeks of the class.
+
+## Attendance Policy
+
+Your attendance and participation grade is divided into two parts: 10% comes from your presence in class, and 10% from your participation during discussion. I allow you to miss three classes during the semester for any reason: you do not need to inform me ahead of time unless you are missing class for an approved reason (i.e., an official university event or activity) and would like the absence to be excused.
+
+The second 10% of the grade is qualitative in nature and based on my assessment of your preparation for class and willingness to participate in class discussions. The intent of this grade is not to reward extroverts, but rather to emphasize that classroom learning depends on the commitment of everyone in the class, students included. By asking questions that come from a critical evaluation of the reading, you provide the rest of the class with additional learning through the ability to consider your perspective. My rule of thumb is for you come to class with at least one question based on the reading that you would like to ask.
+
+## E-mail Policy
+
+I welcome emails from students regarding class policies, assignments & readings. In general I respond to all emails within 24 hours; however, it may take me longer to do so on the weekends. In addition, it is unlikely that I will be able to respond very quickly before deadlines such as exams and papers, so please provide at least one day for a response if you need an issue clarified about an assigment. 
+
+I am open to taking questions about the readings and class discussions via email, but I prefer to have substantive discussions in person at my office hours.
+
+## Make-Up Exam Policy
+
+If an event outside of your control causes you to miss or reschedule an exam, please email me as soon as possible so alternative arrangements can be made. Please note that as a rule I do not reschedule examinations for student vacations.
+
+## Academic Dishonesty Policy
+
+Plagiarism undermines the very core of the mission of this class, which is for each student to grow as an emerging scholar of political-economic research. Without completing all the assignments yourself, you will never be able to achieve objectives. Even worse, plagiarism reduces the trust in each other's work that is a necessary component of the scientific enterprise.
+
+Plagiarism includes copying in whole or part from previously published academic works without proper citation, but it also covers passing off someone else's work as your own regardless of whether or not it has been published. Hiring someone to write an essay for you is just as much plagiarism as if you copied an existing article for your work. Furthermore, it should go without saying that copying another student's work in this class (with or without their permission) violates academic integrity. For full details of what plagiarism means in a given situation, refer to the university policy available from the registrar, which I will use when needing to make determination about plagiarism.
+
+If I determine that you have willfully plagiarized an assignment, you will receive an automatic zero on the assignment and you may fail the class or receive further disciplinary action per university policy.
+
+
+## Diversity within the Classroom
+
+This class will explore issues that may be contentious. I expect that all students treat each other with respect. This means that all arguments in the class should be based on factual assertions as opposed to demeaning insults. Furthermore, this class is designed to bring in diverse viewpoints within the class into discussion, whether that involve ethnic heritage, religious perspectives, political ideologies, or racial categories. I want students to learn to see from each other's points of view even if they disagree with what each other say, and to learn to accept each other as fellow scholars. Every person in this class will have an equal chance to speak and share their opinion with the understanding that they must give each other the same respect and understanding. Finally, I will not tolerate the denigration of anyone in the class because of their adopted or prescribed social, religious, political, ethnic, racial, gender-based or sexual identities.
+
+## Additional Learning Needs
+
+Each of us has a different learning style, and I will do my best to accomodate diverse learning needs in the class. If you need any kind of accomodation, please come talk to me as soon as you can so we can arrange a style of learning that works for you. I also refer you to the university's Learning Needs Center for more information on resources that you can use to help you get the most out of this class.
+
+\newpage
+
+# Class Schedule
+
+I expect students to have read the assigned readings before class. This does not mean just skimming reading, but engaging critically with the scholarship. In particular, look for passages that you disagree with or that seem unclear to you, as these are likely ones that could benefit from further discussion in class. I recommend that, if at all possible, students find a way to mark up the articles or books as they are read to improve reading comprehension.
+
+## `r advdate(mon, 1)`: Introduction & Course Expectations
+
+## `r advdate(mon, 2)`: Traditions of Political Economy: Marxists & Liberals
+
+Pages 1-50 from
+```{r, echo = FALSE, results="asis"} 
+bib["smith1776"]
+``` 
+
+"Wage Labour and Capital" and "The Eighteenth Brumaire of Louis Bonaparte" from
+```{r, echo = FALSE, results="asis"} 
+bib["MarxTucker"]
+``` 
+ 
+```{r, echo = FALSE, results="asis"} 
+bib[c("Schwartz_2007","north1991","centeno2012")]
+``` 
+
+For graduate students:
+
+```{r, echo = FALSE, results="asis"} 
+bib[c("polyani1944","schumpeter1976")]
+``` 
+
+##  `r advdate(mon, 3)`: Political Economy of Development I: Overview
+
+Pages 1-50 from
+```{r, echo = FALSE, results="asis"} 
+bib["north2009"]
+``` 
+
+```{r, echo = FALSE, results="asis"} 
+bib[c("NorthWeingast","olson1993","geddes1991game")]
+``` 
+
+Graduate students:
+
+Chapters 1-3 from
+```{r, echo = FALSE, results="asis"} 
+bib["haber2003"]
+``` 
+
+##  `r advdate(mon, 3)`: Political Economy of Development II: Long-Run Institutions
+
+Chs. 1-3 from
+```{r, echo = FALSE, results="asis"} 
+bib["waldner1999"]
+```
+
+Chs. 1-2 from 
+```{r, echo = FALSE, results="asis"} 
+bib["evans1995"]
+```
+
+Graduate students:
+
+```{r, echo = FALSE, results="asis"} 
+bib[c("acemoglu2005","olson1993","geddes1991game","BlaydesKayser2011","acemoglu2001colonial")]
+``` 
+
+##  `r advdate(mon, 4)`: Political Economy of Development III: Ethnicity & Development
+
+Chapters 1-2 from
+```{r, echo = FALSE, results="asis"} 
+bib[c('herbst2000')]
+``` 
+
+```{r, echo = FALSE, results="asis"} 
+bib[c("Acemoglu2013","habyarimana2007")]
+``` 
+
+Graduate students:
+
+```{r, echo = FALSE, results="asis"} 
+bib[c("ECTA:ECTA1289","alesina2004ethnic")]
+``` 
+
+
+
+##  `r advdate(mon, 5)`: Political Economy of Development IV: Democracy & Development
+
+```{r, echo = FALSE, results="asis"} 
+bib[c("LIpset1959","Limongi1997","Boix2003","boix2011")]
+``` 
+
+For graduate students:
+
+```{r, echo = FALSE, results="asis"} 
+bib[c("acemoglu2009","acemoglu2008persistence","albertus2014","ansell2010inequality")]
+``` 
+
+##  `r advdate(mon, 6)`: Political Economy of Redistribution I: Advanced Industrial Economies
+
+
+
+```{r, echo = FALSE, results="asis"} 
+bib[c("piketyy2006","wallerstein1999","pierson1996","Korpi_2006")]
+``` 
+
+For graduate students:
+
+```{r, echo = FALSE, results="asis"} 
+bib[c("boix1999setting","alesina2001doesn","iversen2006electoral")]
+``` 
+
+*Draft of paper hypotheses due for in-class critique*
+
+##  `r advdate(mon, 7)`: Political Economy of Redistribution II: Redistribution in Late-Developing Countries
+
+```{r, echo = FALSE, results="asis"} 
+bib[c("mares2009","wibbels2011","cammett2011")]
+```
+
+For graduate students:
+
+```{r, echo = FALSE, results="asis"} 
+bib[c("weyland2005","avelino2005","miller2015")]
+``` 
+
+*Midterm Examination*
+
+##  `r advdate(mon, 8)`: Political Economy of Redistribution III: Regime Transitions
+
+Deep Dive:
+
+```{r, echo = FALSE, results="asis"} 
+bib[c('arriola2015')]
+```
+
+For graduate students:
+
+```{r, echo = FALSE, results="asis"} 
+bib[c('Acemoglu2006',"acemoglu2008persistence","albertus2014","ansell2010inequality")]
+```
+
+
+##  `r advdate(mon, 9)`: Political Economy of Trade I: Globalization
+
+Chapters 1-3 from
+```{r, echo = FALSE, results="asis"} 
+bib[c('baghwati2004')]
+```
+
+
+
+```{r, echo = FALSE, results="asis"} 
+bib[c('wood2000','vogel1997')]
+```
+
+For graduate students:
+
+```{r, echo = FALSE, results="asis"} 
+bib[c('boix2006','alt1996','gourevictch1978','mahler2004','milner2005')]
+```
+
+##  `r advdate(mon, 10)`: Political Economy of Trade II: Multinational Firms
+
+```{r, echo = FALSE, results="asis"} 
+bib[c('kim2017etal','tingley2017','malesky2016','pandya2010')]
+```
+
+Graduate students:
+
+```{r, echo = FALSE, results="asis"} 
+bib[c('imai2017trade')]
+```
+
+
+##  `r advdate(mon, 11)`: Political Economy of Corruption I: Bureaucracy
+
+##  `r advdate(mon, 12)`: Political Economy of Corruption II: Elections & Parties
+
+## `r advdate(mon, 13)`: Political Economy of Corruption III: Firms & Politics
+
+##  `r advdate(mon, 14)`: Putting It Together: States, Development & Power
+
+Deep Dive: 
+
+```{r, echo = FALSE, results="asis"} 
+bib[c("tilly1992")]
+```
+
+For graduate students:
+
+```{r, echo = FALSE, results="asis"} 
+bib[c("besley2007principled")]
+```
+
+##  `r advdate(mon, 15)` *Final Papers Due*
+
